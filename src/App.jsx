@@ -384,8 +384,17 @@ function Navbar({ dark, toggle, t }) {
  
       <AnimatePresence>
         {menu&&(
-          <motion.div initial={{opacity:0,height:0}} animate={{opacity:1,height:"auto"}} exit={{opacity:0,height:0}}
-            style={{ background:t.navBg, backdropFilter:"blur(20px)", borderBottom:`1px solid ${t.border}`, overflow:"hidden" }}>
+          <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              style={{
+                background: t.navBg,
+                backdropFilter: "blur(20px)",
+                borderBottom: `1px solid ${t.border}`,
+                overflow: "hidden",
+                marginBottom: "40px",
+              }}>
             <div style={{ padding:"1rem 2.5rem 1.5rem", display:"flex", flexDirection:"column", gap:14 }}>
               {["Hero","About","Skills","Projects","Contact"].map(l=>(
                 <button key={l} onClick={()=>go(l.toLowerCase())}
@@ -452,7 +461,7 @@ function Hero({ t }) {
 };
   return (
     <section id="hero" ref={ref} style={{ minHeight:"100vh", display:"flex", alignItems:"center",
-      position:"relative", overflow:"hidden", background:t.heroGrad, padding:"120px 2.5rem 60px" }}>
+      position:"relative", overflow:"hidden", background:t.heroGrad, padding: window.innerWidth <= 768 ? "180px 1.5rem 60px": "120px 2.5rem 60px" }}>
  
       {/* Parallax blob 1 — slowest */}
       <motion.div style={{ position:"absolute", top:"-15%", right:"-8%", width:620, height:620,
