@@ -308,7 +308,16 @@ function Navbar({ dark, toggle, t }) {
     return ()=>window.removeEventListener("scroll", fn);
   },[]);
  
-  const go = id => { document.getElementById(id)?.scrollIntoView({behavior:"smooth"}); setMenu(false); };
+  const go = (id) => {
+  setMenu(false);
+
+  setTimeout(() => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, 100);
+};
  
   return (
     <motion.nav initial={{y:-80,opacity:0}} animate={{y:0,opacity:1}} transition={{duration:0.7,ease:[0.22,1,0.36,1]}}
@@ -461,7 +470,7 @@ function Hero({ t }) {
 };
   return (
     <section id="hero" ref={ref} style={{ minHeight:"100vh", display:"flex", alignItems:"center",
-      position:"relative", overflow:"hidden", background:t.heroGrad, padding: window.innerWidth <= 768 ? "180px 1.5rem 60px": "120px 2.5rem 60px" }}>
+      position:"relative", overflow:"hidden", background:t.heroGrad, padding: window.innerWidth <= 768 ? "120px 1.5rem 60px" : "120px 2.5rem 60px" }}>
  
       {/* Parallax blob 1 — slowest */}
       <motion.div style={{ position:"absolute", top:"-15%", right:"-8%", width:620, height:620,
