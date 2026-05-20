@@ -56,4 +56,4 @@ LinkedIn: https://www.linkedin.com/in/seshagiri-prasanna-aa598a2a4/
 
 ## 🌐 Live Demo
 
-https://your-vercel-link.vercel.app
+https://portfolio-ekxo.vercel.app/
